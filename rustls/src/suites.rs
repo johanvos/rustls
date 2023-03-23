@@ -91,6 +91,7 @@ impl SupportedCipherSuite {
         }
     }
 
+    #[cfg(any(test, feature = "quic"))]
     pub(crate) fn tls13(&self) -> Option<&'static Tls13CipherSuite> {
         match self {
             #[cfg(feature = "tls12")]
